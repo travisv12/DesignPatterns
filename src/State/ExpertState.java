@@ -25,6 +25,10 @@ public class ExpertState implements CharacterState {
     public void fight() {
         character.gainExperience(30);
         character.decreaseHealth(20);
+        if (character.getExperience() >= 100) {
+            System.out.println(character.getExperience() + " XP reached! Leveling up to Master.");
+            character.setState(new MasterState(character));
+        }
     }
 
     @Override
