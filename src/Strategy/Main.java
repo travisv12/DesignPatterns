@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        SorterContext context = new SorterContext();
         Scanner scanner = new Scanner(System.in);
         int[] smallArray = generateRandomArray(30, 0, 100);
-        int[] largeArray = generateRandomArray(100000, 0, 100000);
+        int[] largeArray = generateRandomArray(100000, 1, 100000);
 
         while (true) {
             System.out.println("Choose sorting strategy:");
@@ -38,14 +39,14 @@ public class Main {
                     continue;
             }
 
-            testPerformance(strategy, smallArray, largeArray);
+            testPerformance(context, strategy, smallArray, largeArray);
         }
 
         scanner.close();
     }
 
-    private static void testPerformance(SortStrategy strategy, int[] smallData, int[] largeData) {
-        SorterContext context = new SorterContext(strategy);
+    private static void testPerformance(SorterContext context, SortStrategy strategy, int[] smallData, int[] largeData) {
+        context.setStrategy(strategy);
 
         int[] small = smallData.clone();
         int[] large = largeData.clone();

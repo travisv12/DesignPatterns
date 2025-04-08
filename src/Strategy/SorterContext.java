@@ -3,8 +3,8 @@ package Strategy;
 public class SorterContext {
     private SortStrategy sortStrategy;
 
-    public SorterContext(SortStrategy sortStrategy) {
-        this.sortStrategy = sortStrategy;
+    public SorterContext() {
+        this.sortStrategy = new BubbleSortStrategy();
     }
 
     public void setStrategy(SortStrategy sortStrategy) {
