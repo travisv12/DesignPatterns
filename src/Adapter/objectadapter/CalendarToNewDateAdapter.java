@@ -1,13 +1,15 @@
 package Adapter.objectadapter;
 
 import Adapter.calendar.NewDateInterface;
+
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class CalendarToNewDateAdapter implements NewDateInterface {
     private final Calendar calendar;
 
-    public CalendarToNewDateAdapter() {
-        this.calendar = Calendar.getInstance();
+    public CalendarToNewDateAdapter(Calendar calendar) {
+        this.calendar = calendar;
     }
 
     @Override
